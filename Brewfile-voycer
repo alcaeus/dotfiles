@@ -1,0 +1,16 @@
+# Install additional dependencies needed for Voycer AG
+# Usage: `brew bundle --file=Brewfile-voycer`
+# Additional PHP packages
+brew 'php56-gearman'
+brew 'php56-igbinary'
+brew 'php56-redis'
+brew 'php56-xhprof'
+
+# Services
+brew 'redis'
+brew 'gearman'
+
+# Other packages
+brew 'node'
+
+cask 'hipchat'

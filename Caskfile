@@ -1,0 +1,15 @@
+# Install native apps
+# Usage: `brew bundle --file=Caskfile`
+
+tap 'caskroom/cask'
+tap 'caskroom/versions'
+
+cask 'atom'
+cask 'dropbox'
+cask 'flux'
+cask 'moom'
+cask 'phpstorm'
+cask 'quassel-client'
+cask 'sonos'
+cask 'toggldesktop'
+cask 'whatpulse'
