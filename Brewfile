@@ -10,6 +10,7 @@ brew 'hub'
 brew 'ansible'
 brew 'curl'
 brew 'mongo'
+brew 'mongo-orchestration'
 
 # PHP packages
 tap 'homebrew/php'
