@@ -11,6 +11,7 @@ brew 'ansible'
 brew 'curl'
 brew 'mongo'
 brew 'mongo-orchestration'
+brew 'wget'
 
 # PHP packages
 tap 'homebrew/php'
