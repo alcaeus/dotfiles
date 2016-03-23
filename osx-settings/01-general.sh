@@ -4,14 +4,6 @@
 # General UI/UX                                                               #
 ###############################################################################
 
-SYSTEM_NAME=$1
-
-# Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "$SYSTEM_NAME"
-sudo scutil --set HostName "$SYSTEM_NAME"
-sudo scutil --set LocalHostName "$SYSTEM_NAME"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$SYSTEM_NAME"
-
 # Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
