@@ -178,3 +178,6 @@
 
 [push]
 	default = current
+
+[user]
+	useconfigonly = true
