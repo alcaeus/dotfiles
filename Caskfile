@@ -5,6 +5,7 @@ tap 'caskroom/cask'
 tap 'caskroom/versions'
 
 cask 'atom'
+cask 'chitchat'
 cask 'dropbox'
 cask 'flux'
 cask 'moom'
