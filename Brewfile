@@ -12,6 +12,7 @@ brew 'curl'
 brew 'mongo'
 brew 'mongo-orchestration'
 brew 'wget'
+brew 'cloc'
 
 # PHP packages
 tap 'homebrew/php'
