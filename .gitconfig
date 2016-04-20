@@ -132,10 +132,7 @@
 
 [push]
 
-	# Use the Git 1.x.x default to avoid errors on machines with old Git
-	# installations. To use `simple` instead, add this to your `~/.extra` file:
-	# `git config --global push.default simple`. See http://git.io/mMah-w.
-	default = matching
+	default = current
 
 # URL shorthands
 
@@ -156,10 +153,9 @@
 	pushInsteadOf = "git://gist.github.com/"
 
 [url "git://gist.github.com/"]
+
 	insteadOf = "gist:"
 
-[push]
-	default = current
-
 [user]
+
 	useconfigonly = true
