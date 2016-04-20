@@ -6,6 +6,8 @@ tap 'homebrew/versions'
 
 # General development stuff
 brew 'git'
+brew 'gpg'
+brew 'gpg-agent'
 brew 'hub'
 brew 'ansible'
 brew 'curl'
