@@ -4,6 +4,7 @@
 
 	# Show signature information by default
 	show = show --show-signature
+	log = log --show-signature
 
 	# View the current working tree status using the short format
 	s = status -s
