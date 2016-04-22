@@ -163,3 +163,7 @@
 [user]
 
 	useconfigonly = true
+
+[gpg]
+
+	program = gpg2
