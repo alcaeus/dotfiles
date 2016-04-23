@@ -64,8 +64,8 @@
 	lv = !"git tag | sort -t. -k 1,1rn -k 2,2rn -k 3,3rn -k 4,4rn | head -n 1"
 
 	# Show pretty version graph
-	graph = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'"
-	graphAll = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
+	graph = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(black)%s%C(reset)%n''          %an%  - %G? %GS %GK'"
+	graphAll = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(black)%s%C(reset)%n''          %an%  - %G? %GS %GK' --all"
 
 	clean-branches = !"git for-each-ref --format='%(refname:short)' refs/heads/* | while read b; do if r=$(git config --get branch.$b.remote); then m=$(git config --get branch.$b.merge); ref=$(git for-each-ref --format='%(refname:short)' \"refs/remotes/$r/${m##*/}\" | wc -l | tr -d ' '); if [ \"x$ref\" == \"x0\" ]; then git branch -d $b; fi; fi; done"
 
