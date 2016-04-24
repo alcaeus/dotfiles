@@ -34,6 +34,8 @@ alias ga="git add"
 alias gc="git commit"
 alias gsl="git shortlog -s -n"
 alias gm="git master"
+alias grc="git rebase --continue"
+alias grs="git rebase --skip"
 
 # Composer shortcuts
 alias c="composer"
