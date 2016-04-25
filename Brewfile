@@ -18,9 +18,8 @@ brew 'cloc'
 
 # PHP packages
 tap 'homebrew/php'
-brew 'php56'
-brew 'php56-intl'
-brew 'php56-mongodb'
-brew 'php56-mongo'
-brew 'php56-xdebug'
+brew 'php70'
+brew 'php70-intl'
+brew 'php70-mongodb'
+brew 'php70-xdebug'
 brew 'composer'
