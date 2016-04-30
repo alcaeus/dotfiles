@@ -36,6 +36,7 @@ alias gsl="git shortlog -s -n"
 alias gm="git master"
 alias grc="git rebase --continue"
 alias grs="git rebase --skip"
+alias gfp="git fetch --prune"
 
 # Composer shortcuts
 alias c="composer"
