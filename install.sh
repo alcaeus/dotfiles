@@ -9,3 +9,6 @@ brew bundle --file=Caskfile
 
 echo "Bootstrap settings"
 ./bootstrap.sh
+
+echo "Install app store programs"
+./mas.sh

@@ -16,6 +16,7 @@ brew 'mongo'
 brew 'mongo-orchestration'
 brew 'wget'
 brew 'cloc'
+brew 'mas'
 
 # PHP packages
 tap 'homebrew/php'
