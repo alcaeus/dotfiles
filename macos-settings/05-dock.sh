@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ###############################################################################
-# Dock, Dashboard, and hot corners                                            #
+# dock, dashboard, menu, and hot corners                                      #
 ###############################################################################
 
 # Enable highlight hover effect for the grid view of a stack (Dock)
@@ -24,6 +24,14 @@ defaults write com.apple.dock autohide -bool true
 
 # Make Dock icons of hidden applications translucent
 defaults write com.apple.dock showhidden -bool true
+
+# Configure date format in menu bar
+defaults write com.apple.menuextra.clock DateFormat -string "EEE HH:mm:ss"
+defaults write com.apple.menuextra.clock FlashDateSeparators -bool false
+defaults write com.apple.menuextra.clock IsAnalog -bool false
+
+# Show battery percentage in menu bar
+defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
 # Hot corners
 # Possible values:
