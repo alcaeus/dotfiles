@@ -3,9 +3,7 @@
 cd "$(dirname "${BASH_SOURCE}")";
 
 function doIt() {
-	rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" --exclude "macos-settings/" \
-		--exclude "README.md" --exclude "LICENSE-MIT.txt" --exclude ".idea" -avh \
-		--no-perms . ~;
+	rsync --exclude ".DS_Store" -avh --no-perms home ~;
 	source ~/.bash_profile;
 }
 
