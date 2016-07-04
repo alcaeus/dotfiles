@@ -1,0 +1,4 @@
+# Install native apps
+# Usage: `brew bundle --file=Caskfile-work`
+
+cask 'slack'
