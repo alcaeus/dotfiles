@@ -5,6 +5,7 @@ tap 'homebrew/dupes'
 tap 'homebrew/versions'
 
 # General development stuff
+brew 'bash-completion'
 brew 'git'
 brew 'gpg2'
 brew 'gpg-agent'
