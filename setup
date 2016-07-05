@@ -8,11 +8,11 @@ echo "Install brewfiles"
 brew bundle --file=brew/Brewfile
 brew bundle --file=brew/Caskfile
 
-echo "Bootstrap settings"
-./bootstrap.sh
+echo "Setup bootstrap settings"
+./setup-dotfiles.sh
 
 echo "Update macOS settings"
 ./setup-macos.sh
 
 echo "Install app store programs"
-./mas.sh
+./setup-apps.sh
