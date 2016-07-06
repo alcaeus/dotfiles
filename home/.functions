@@ -108,3 +108,47 @@ function o() {
 function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
+
+# `keychain-import-pkcs12` extracts key and certificate from a PKCS12 container
+# and imports them into the keychain. This is provided since Keychain access
+# doesn't allow pasting the passphrase
+function keychain-import-pkcs12 () {
+	openssl pkcs12 -in $1 -nocerts -nodes -out /tmp/private.key
+	openssl pkcs12 -in $1 -clcerts -nokeys -out /tmp/public.crt
+	security import /tmp/public.crt -t pub -k login.keychain
+	security import /tmp/private.key -t priv -k login.keychain
+	rm /tmp/private.key /tmp/public.crt
+}
+
+# `make-pkcs12` takes a key and certificate and creates a pkcs12 container
+function make-pkcs12 () {
+	if [ $# -eq 1 ]; then
+		PKEY="$1.key";
+		CERT="$1.crt";
+		OUT="$1.p12";
+		NAME=$1;
+	elif [ $#-eq 4 ]; then
+		NAME=$1;
+		CERT=$2;
+		PKEY=$3;
+		OUT=$4;
+	else
+		echo "Usage: make-pkcs12 <name> <certificate-file> <private-key-file> <output-file>";
+		echo "Usage: make-pkcs12 <name>";
+		echo "The second form assumes the files <name>.crt and <name>.key to be present";
+		return 1;
+	fi;
+
+	openssl pkcs12 -export -clcerts -inkey $PKEY -in $CERT -out $OUT -name $NAME
+}
+
+# `gpg-sign-key` signs a key, exports and encrypts the signature
+function gpg-sign-key () {
+	if [ $# -ne 1 ]; then
+		echo "Usage: sign-key <key>";
+		return 1;
+	fi;
+
+	gpg --sign-key --ask-cert-level "$1"
+	gpg -a --export "$1" | gpg -a -e -r "$1" -o "$1_signed.asc"
+}
