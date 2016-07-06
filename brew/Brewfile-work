@@ -1,0 +1,8 @@
+# brew command-line tools using Homebrew
+# Usage: `brew bundle --file=Brewfile-work`
+
+brew 'vagrant-completion'
+
+cask 'slack'
+cask 'vagrant'
+cask 'virtualbox'

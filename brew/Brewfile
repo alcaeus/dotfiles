@@ -3,6 +3,9 @@
 
 tap 'homebrew/dupes'
 tap 'homebrew/versions'
+tap 'homebrew/completions'
+tap 'caskroom/cask'
+tap 'caskroom/versions'
 
 # General development stuff
 brew 'bash-completion'
@@ -26,3 +29,16 @@ brew 'php70-intl'
 brew 'php70-mongodb'
 brew 'php70-xdebug'
 brew 'composer'
+
+# General casks
+cask 'atom'
+cask 'chitchat'
+cask 'dropbox'
+cask 'flux'
+cask 'moom'
+cask 'phpstorm'
+cask 'quassel-client'
+cask 'sonos'
+cask 'toggldesktop'
+cask 'whatpulse'
+cask 'whatsapp'
