@@ -3,7 +3,7 @@
 cd "$(dirname "${BASH_SOURCE}")";
 
 function doIt() {
-	rsync --exclude ".DS_Store" -avh --no-perms home ~;
+	rsync --exclude ".DS_Store" -avh --no-perms home/ ~;
 	source ~/.bash_profile;
 }
 
