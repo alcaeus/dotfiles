@@ -2,17 +2,18 @@
 
 ## Usage
 
-To install, use the bootstrap script:
+To setup all subsystems (dotfiles, brew/cask apps, App Store apps, macOS settings) run the setup script:
+```
+./setup
+```
 
-    ./bootstrap.sh
-
-To setup sensible OSX defaults, use the setup-osx script:
-
-    ./setup-osx
-
-Or, to install brew and all dependencies in one go:
-
-    ./install.sh
+If you only want to install parts, use the specific install scripts:
+```
+./setup-brew.sh
+./setup-apps.sh
+./setup-dotfiles.sh
+./setup-macos.sh
+```
 
 ## Disclaimer
 
