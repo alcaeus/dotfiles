@@ -3,6 +3,7 @@
 
 brew 'vagrant-completion'
 
+cask 'google-cloud-sdk'
 cask 'slack'
 cask 'vagrant'
 cask 'virtualbox'
