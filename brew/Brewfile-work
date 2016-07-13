@@ -1,7 +1,10 @@
 # brew command-line tools using Homebrew
 # Usage: `brew bundle --file=Brewfile-work`
 
+brew 'docker'
+brew 'docker-machine'
 brew 'vagrant-completion'
+brew 'rsync'
 
 cask 'google-cloud-sdk'
 cask 'slack'
