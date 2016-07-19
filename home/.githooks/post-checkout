@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+for f in ~/.githooks/post-checkout.d/*
+do
+	source $f
+done
