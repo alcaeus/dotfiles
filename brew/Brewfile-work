@@ -6,6 +6,12 @@ brew 'docker-machine'
 brew 'vagrant-completion'
 brew 'rsync'
 
+brew 'php70-imagick'
+brew 'php70-v8js'
+
+brew 'npm'
+brew 'kubernetes-cli'
+
 cask 'google-cloud-sdk'
 cask 'slack'
 cask 'vagrant'
