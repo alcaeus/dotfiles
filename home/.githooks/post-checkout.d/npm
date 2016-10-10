@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+PREV_COMMIT=$1
+POST_COMMIT=$2
+
+NOCOLOR='\033[0m'
+REDCOLOR='\033[37;41m'
+
+DIFF=""
+
+if [[ -f npm-shrinkwrap.json ]]; then
+    DIFF=`git diff --shortstat $PREV_COMMIT..$POST_COMMIT npm-shrinkwrap.json`
+elif [[ -f package.json ]]; then
+    DIFF=`git diff --shortstat $PREV_COMMIT..$POST_COMMIT package.json`
+fi
+
+if [[ $DIFF != "" ]]; then
+    echo -e "$REDCOLOR npm dependencies have changed. You must run npm install$NOCOLOR"
+fi
