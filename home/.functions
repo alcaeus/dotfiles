@@ -152,3 +152,9 @@ function gpg-sign-key () {
 	gpg --sign-key --ask-cert-level "$1"
 	gpg -a --export "$1" | gpg -a -e -r "$1" -o "$1_signed.asc"
 }
+
+# Switch to a specific php version
+function usephp () {
+	brew list | grep "php\d*$" | xargs brew unlink 
+	brew link php$1
+}
