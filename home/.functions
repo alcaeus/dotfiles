@@ -158,3 +158,8 @@ function usephp () {
 	brew list | grep "php\d*$" | xargs brew unlink 
 	brew link php$1
 }
+
+# "Alias" to resolve an existing alias
+function resolve () {
+	alias | grep "alias $1="
+}

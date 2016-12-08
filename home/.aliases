@@ -72,8 +72,3 @@ done
 
 # Faster npm for Europeans
 command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.eu/"
-
-# "Alias" to resolve an existing alias
-function resolve () {
-	alias | grep "alias $1="
-}
