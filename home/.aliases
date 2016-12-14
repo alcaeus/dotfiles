@@ -62,8 +62,8 @@ alias sudo='sudo '
 # Alias gpg2 as gpg just because
 alias gpg='gpg2'
 
-# Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
-alias update='brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update'
+# Get OS X Software Updates, and update installed Ruby gems, Homebrew, and their installed packages
+alias update='brew update; brew upgrade; brew cleanup; sudo gem update --system; sudo gem update'
 
 # One of @janmoesen’s ProTip™s
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do

@@ -9,7 +9,7 @@ brew 'rsync'
 brew 'php71-imagick'
 brew 'php71-v8js'
 
-brew 'npm'
+brew 'yarn'
 brew 'kubernetes-cli'
 
 cask 'google-cloud-sdk'
