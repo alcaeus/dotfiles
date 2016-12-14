@@ -24,10 +24,10 @@ brew 'mas'
 
 # PHP packages
 tap 'homebrew/php'
-brew 'php70'
-brew 'php70-intl'
-brew 'php70-mongodb'
-brew 'php70-xdebug'
+brew 'php71'
+brew 'php71-intl'
+brew 'php71-mongodb'
+brew 'php71-xdebug'
 brew 'composer'
 
 # General casks

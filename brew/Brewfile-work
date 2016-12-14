@@ -6,8 +6,8 @@ brew 'docker-machine'
 brew 'vagrant-completion'
 brew 'rsync'
 
-brew 'php70-imagick'
-brew 'php70-v8js'
+brew 'php71-imagick'
+brew 'php71-v8js'
 
 brew 'npm'
 brew 'kubernetes-cli'
