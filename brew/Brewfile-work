@@ -5,6 +5,7 @@ brew 'docker'
 brew 'docker-machine'
 brew 'vagrant-completion'
 brew 'rsync'
+brew 'mysql'
 
 brew 'php71-imagick'
 brew 'php71-v8js'
