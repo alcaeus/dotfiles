@@ -1,6 +1,8 @@
 # brew command-line tools using Homebrew
 # Usage: `brew bundle --file=Brewfile-work`
 
+tap 'blackfireio/homebrew-blackfire'
+
 brew 'docker'
 brew 'docker-machine'
 brew 'vagrant-completion'
@@ -12,6 +14,8 @@ brew 'php71-v8js'
 
 brew 'yarn'
 brew 'kubernetes-cli'
+
+brew 'blackfire-agent'
 
 cask 'google-cloud-sdk'
 cask 'slack'
