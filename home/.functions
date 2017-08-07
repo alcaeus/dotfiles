@@ -155,7 +155,7 @@ function gpg-sign-key () {
 
 # Switch to a specific php version
 function usephp () {
-	brew list | grep "php\d*$" | xargs brew unlink 
+	brew list | grep "^php\d*$" | xargs brew unlink 
 	brew link php$1
 }
 
