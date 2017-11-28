@@ -32,7 +32,7 @@ brew 'composer'
 
 # General casks
 cask 'atom'
-cask 'chitchat'
+cask 'gitter'
 cask 'moom'
 cask 'phpstorm'
 cask 'quassel-client'
