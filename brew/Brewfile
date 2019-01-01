@@ -1,12 +1,6 @@
 # brew command-line tools using Homebrew
 # Usage: `brew bundle`
 
-tap 'homebrew/dupes'
-tap 'homebrew/versions'
-tap 'homebrew/completions'
-tap 'caskroom/cask'
-tap 'caskroom/versions'
-
 # General development stuff
 brew 'bash-completion'
 brew 'git'
@@ -14,28 +8,25 @@ brew 'gpg2'
 brew 'gpg-agent'
 brew 'pinentry-mac'
 brew 'hub'
-brew 'ansible'
 brew 'curl'
-brew 'mongo'
-brew 'mongo-orchestration'
+brew 'mongodb'
 brew 'wget'
 brew 'cloc'
 brew 'mas'
 
 # PHP packages
-tap 'homebrew/php'
-brew 'php71'
-brew 'php71-intl'
-brew 'php71-mongodb'
-brew 'php71-xdebug'
+brew 'php'
+brew 'php@7.2'
+brew 'php@7.1'
 brew 'composer'
 
 # General casks
 cask 'atom'
-cask 'gitter'
+cask 'duet'
 cask 'moom'
 cask 'phpstorm'
+cask 'slack'
 cask 'sonos'
-cask 'toggldesktop'
+cask 'toggl'
 cask 'whatpulse'
 cask 'whatsapp'

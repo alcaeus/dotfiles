@@ -1,8 +1,0 @@
-# Install native apps
-# Usage: `brew bundle --file=Brewfile-php56`
-
-brew 'php56'
-brew 'php56-intl'
-brew 'php56-mongodb'
-brew 'php56-mongo'
-brew 'php56-xdebug'
