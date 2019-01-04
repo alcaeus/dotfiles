@@ -9,3 +9,6 @@ echo "Setup bootstrap settings"
 
 echo "Install app store programs"
 ./setup-apps.sh
+
+echo "Configure PHP"
+./setup-php.sh
