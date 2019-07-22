@@ -1,4 +1,5 @@
 #!/bin/bash
+source ~/.bash_profile;
 cd "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/php/"
 
 for version in *; do
