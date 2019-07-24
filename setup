@@ -7,8 +7,8 @@ echo "Install homebrew and dependencies"
 echo "Setup bootstrap settings"
 ./setup-dotfiles.sh
 
-echo "Update macOS settings"
-./setup-macos.sh
-
 echo "Install app store programs"
 ./setup-apps.sh
+
+echo "Configure PHP"
+./setup-php.sh
