@@ -12,3 +12,6 @@ echo "Install app store programs"
 
 echo "Configure PHP"
 ./setup-php.sh
+
+echo "Install MongoDB tooling. This might ask for sudo access."
+./setup-mongodb.sh
