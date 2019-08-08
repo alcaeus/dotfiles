@@ -48,13 +48,13 @@ function delete {
 }
 
 function code {
-   expr "$1" : '.*HTTP/1.[01] \([0-9]*\)'
+    expr "$1" : '.*HTTP/1.[01] \([0-9]*\)'
 }
 
 function usage {
     echo "usage: $0 <topology>/<configuration>.json action"
     echo "topology: standalone|replica_sets|sharded_clusters"
-    echo "action: start|status|stop|url"
+    echo "action: start|status|stop|url|mongo"
     exit 1
 }
 
@@ -132,6 +132,15 @@ url)
     then
         echo $(url "$GET")
     else
+        EXIT_CODE=1
+    fi
+    ;;
+mongo)
+    if [ "$HTTP_CODE" == "200" ]
+    then
+        mongo $(url "$GET")
+    else
+        echo "Configuration $R/$ID is not running"
         EXIT_CODE=1
     fi
     ;;
