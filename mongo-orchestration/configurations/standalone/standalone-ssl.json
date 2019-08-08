@@ -1,0 +1,21 @@
+{
+    "name": "mongod",
+    "id" : "STANDALONE_SSL",
+    "procParams": {
+        "dbpath": "/tmp/standalone-ssl/",
+        "ipv6": true,
+        "logappend": true,
+        "logpath": "/tmp/standalone-ssl/m.log",
+        "journal": true,
+        "port": 2100,
+        "bind_ip_all": true,
+        "setParameter": {"enableTestCommands": 1}
+    },
+    "sslParams": {
+        "sslMode": "requireSSL",
+        "sslCAFile": "$BASE_DIR/ssl/ca.pem",
+        "sslPEMKeyFile": "$BASE_DIR/ssl/server.pem",
+        "sslWeakCertificateValidation": true,
+        "sslAllowInvalidHostnames": true
+    }
+}

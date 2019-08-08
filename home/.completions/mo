@@ -1,0 +1,25 @@
+# bash completion for mo
+
+_mo () {
+    local cur
+    COMPREPLY=()
+    cur=${COMP_WORDS[COMP_CWORD]}
+
+    case $COMP_CWORD in
+        1)
+            k=0
+            BASE_DIR="/usr/local/mongo-orchestration/configurations/"
+            for comp in $( compgen -f "$BASE_DIR/$cur" ); do # loop trough the possible completions
+                [ -d "$comp" ] && comp="${comp}/" || comp="${comp} " # if its a dir add a shlash, else a space
+                COMPREPLY[k++]=${comp#$BASE_DIR/} # remove the directory prefix from the array
+            done
+            ;;
+        2)
+            COMPREPLY=($(compgen -W "start stop status url" "$cur"))
+            ;;
+    esac
+
+    return 0
+}
+
+complete -F _mo -o nospace mo

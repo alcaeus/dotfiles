@@ -1,6 +1,8 @@
 # brew command-line tools using Homebrew
 # Usage: `brew bundle`
 
+tap 'alcaeus/brew'
+
 # General development stuff
 brew 'bash-completion'
 brew 'git'
@@ -8,7 +10,7 @@ brew 'gnupg'
 brew 'pinentry-mac'
 brew 'hub'
 brew 'curl'
-brew 'mongodb'
+brew 'm'
 brew 'mongo-orchestration'
 brew 'wget'
 brew 'cloc'
