@@ -54,8 +54,39 @@ function code {
 function usage {
     echo "usage: $0 <topology>/<configuration>.json action"
     echo "topology: standalone|replica_sets|sharded_clusters"
-    echo "action: start|status|stop|url|mongo"
+    echo "action: start|status|stop|restart|url|mongo"
     exit 1
+}
+
+function start {
+    LOGPATH=$WORKSPACE
+    DBPATH=$WORKSPACE
+    POST_DATA=$(eval_params $CONFIGURATION_DIR/$1)
+    POST=$(post $BASE_URL/$R "$POST_DATA")
+
+    HTTP_CODE=$(code "$POST")
+    if [ "$HTTP_CODE" != 200 ]
+    then
+        echo "Could not start server with configuration $R/$ID. Response below"
+        echo $POST
+        return 1
+    else
+        echo "Started configuration $R/$ID, connect using $(url "$POST")"
+    fi
+}
+
+function stop
+{
+    DELETE=$(delete $BASE_URL/$R/$ID)
+    HTTP_CODE=$(code "$DELETE")
+    if [ "$HTTP_CODE" != 204 ]
+    then
+        echo "Could not stop configuration $R/$ID. Response below"
+        echo $DELETE
+        return 1
+    else
+        echo "Configuration $R/$ID stopped successfully."
+    fi
 }
 
 SSL_FILES=$(a ./ssl-files)
@@ -83,20 +114,8 @@ case $2 in
 start)
     if [ "$HTTP_CODE" != "200" ]
     then
-        LOGPATH=$WORKSPACE
-        DBPATH=$WORKSPACE
-        POST_DATA=$(eval_params $CONFIGURATION_DIR/$1)
-        POST=$(post $BASE_URL/$R "$POST_DATA")
-
-        HTTP_CODE=$(code "$POST")
-        if [ "$HTTP_CODE" != 200 ]
-        then
-            echo "Could not start server with configuration $R/$ID. Response below"
-            echo $POST
-            EXIT_CODE=1;
-        else
-            echo "Started configuration $R/$ID, connect using $(url "$POST")"
-        fi
+        start $1
+        EXIT_CODE=$?
     else
         echo "Configuration $R/$ID already running! Connect using $(url "$GET")"
     fi
@@ -104,15 +123,22 @@ start)
 stop)
     if [ "$HTTP_CODE" == "200" ]
     then
-        DELETE=$(delete $BASE_URL/$R/$ID)
-        HTTP_CODE=$(code "$DELETE")
-        if [ "$HTTP_CODE" != 204 ]
+        stop $1
+        EXIT_CODE=$?
+    else
+        echo "Configuration $R/$ID is not running!"
+    fi
+    ;;
+restart)
+    if [ "$HTTP_CODE" == "200" ]
+    then
+        stop $1
+        EXIT_CODE=$?
+
+        if [ "$EXIT_CODE" == "0" ]
         then
-            echo "Could not stop configuration $R/$ID. Response below"
-            echo $DELETE
-            EXIT_CODE=1
-        else
-            echo "Configuration $R/$ID stopped successfully."
+            start $1
+            EXIT_CODE=$?
         fi
     else
         echo "Configuration $R/$ID is not running!"
