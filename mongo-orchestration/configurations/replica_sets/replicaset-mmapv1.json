@@ -1,0 +1,63 @@
+{
+    "id": "REPLICASET-MMAPv1",
+    "name": "mongod",
+    "members": [
+        {
+            "procParams": {
+                "dbpath": "/tmp/REPLICASET/3100/",
+                "ipv6": true,
+                "logappend": true,
+                "logpath": "/tmp/REPLICASET/3100/mongod.log",
+                "journal": true,
+                "port": 3100,
+                "bind_ip_all": true,
+                "storageEngine": "mmapv1"
+            },
+            "rsParams": {
+                "priority": 99,
+                "tags": {
+                    "ordinal": "one",
+                    "dc": "pa"
+                }
+            },
+            "server_id": "RS-MMAPv1-one"
+        },
+        {
+            "procParams": {
+                "dbpath": "/tmp/REPLICASET/3101/",
+                "ipv6": true,
+                "logappend": true,
+                "logpath": "/tmp/REPLICASET/3101/mongod.log",
+                "journal": true,
+                "port": 3101,
+                "bind_ip_all": true,
+                "storageEngine": "mmapv1"
+            },
+            "rsParams": {
+                "priority": 1.1,
+                "tags": {
+                    "ordinal": "two",
+                    "dc": "nyc"
+                }
+            },
+            "server_id": "RS-MMAPv1-two"
+        },
+        {
+            "procParams": {
+                "dbpath": "/tmp/REPLICASET/3102/",
+                "ipv6": true,
+                "logappend": true,
+                "logpath": "/tmp/REPLICASET/3102/mongod.log",
+                "journal": true,
+                "port": 3102,
+                "bind_ip_all": true,
+                "storageEngine": "mmapv1"
+            },
+            "rsParams": {
+                "arbiterOnly": true
+
+            },
+            "server_id": "RS-MMAPv1-arbiter"
+        }
+    ]
+}
