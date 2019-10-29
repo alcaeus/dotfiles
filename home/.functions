@@ -163,3 +163,10 @@ function usephp () {
 function resolve () {
 	alias | grep "alias $1="
 }
+
+# `rebuild` to completely rebuild the MongoDB PHP extension
+function rebuild () {
+    phpize > /dev/null && \
+    ./configure --enable-mongodb-developer-flags > /dev/null && \
+    make clean && make all -j20 > /dev/null && make install
+}
