@@ -3,7 +3,11 @@
 
 # PHP packages
 brew 'php@7.1'
+brew 'php@7.1-debug'
 brew 'php@7.2'
+brew 'php@7.2-debug'
 brew 'php@7.3'
+brew 'php@7.3-debug'
 brew 'php@7.4'
+brew 'php@7.4-debug'
 brew 'composer'
