@@ -1,5 +1,10 @@
 #!/bin/bash
 source ~/.bash_profile;
+
+cd "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/"
+
+brew bundle --file=brew/Brewfile-php
+
 cd "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/php/"
 
 for version in *; do

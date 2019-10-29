@@ -1,0 +1,9 @@
+# brew command-line tools using Homebrew
+# Usage: `brew bundle`
+
+# PHP packages
+brew 'php@7.1'
+brew 'php@7.2'
+brew 'php@7.3'
+brew 'php@7.4'
+brew 'composer'
