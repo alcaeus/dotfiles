@@ -72,6 +72,25 @@
                                 "writePeriodicNoops":  true
                             }
                         }
+                    },
+                    {
+                        "procParams": {
+                            "dbpath": "/tmp/SHARDED-RS/SHARD1/4402",
+                            "logpath": "/tmp/SHARDED-RS/SHARD1/4402/mongod.log",
+                            "ipv6": true,
+                            "journal": true,
+                            "logappend": true,
+                            "port": 4402,
+                            "bind_ip_all": true,
+                            "setParameter":  {
+                                "periodicNoopIntervalSecs":  1,
+                                "writePeriodicNoops":  true
+                            }
+                        },
+                        "rsParams": {
+                            "arbiterOnly": true
+
+                        }
                      }
                 ]
             }
@@ -109,6 +128,25 @@
                                 "periodicNoopIntervalSecs":  1,
                                 "writePeriodicNoops":  true
                             }
+                        }
+                    },
+                    {
+                        "procParams": {
+                            "dbpath": "/tmp/SHARDED-RS/SHARD2/4412",
+                            "logpath": "/tmp/SHARDED-RS/SHARD2/4412/mongod.log",
+                            "ipv6": true,
+                            "journal": true,
+                            "logappend": true,
+                            "port": 4412,
+                            "bind_ip_all": true,
+                            "setParameter":  {
+                                "periodicNoopIntervalSecs":  1,
+                                "writePeriodicNoops":  true
+                            }
+                        },
+                        "rsParams": {
+                            "arbiterOnly": true
+
                         }
                     }
                 ]
