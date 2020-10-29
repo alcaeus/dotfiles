@@ -165,9 +165,14 @@ function resolve () {
 	alias | grep "alias $1="
 }
 
+# `recompile` to clean and build the MongoDB PHP extension
+function rebuild () {
+    make clean && make all -j20 > /dev/null
+}
+
 # `rebuild` to completely rebuild the MongoDB PHP extension
 function rebuild () {
     phpize > /dev/null && \
-    ./configure --enable-mongodb-developer-flags > /dev/null && \
+    CC=/usr/local/opt/llvm/bin/clang ./configure --enable-mongodb-developer-flags > /dev/null && \
     make clean && make all -j20 > /dev/null
 }
