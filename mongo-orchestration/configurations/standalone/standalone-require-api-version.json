@@ -1,0 +1,14 @@
+{
+    "name": "mongod",
+    "id" : "STANDALONE_VERSIONED",
+    "procParams": {
+        "dbpath": "/tmp/standalone-versioned/",
+        "ipv6": true,
+        "logappend": true,
+        "logpath": "/tmp/standalone-versioned/mongod.log",
+        "journal": true,
+        "port": 2400,
+        "bind_ip_all": true,
+        "setParameter": {"enableTestCommands": 1, "acceptAPIVersion2": 1, "requireApiVersion":  1}
+    }
+}
