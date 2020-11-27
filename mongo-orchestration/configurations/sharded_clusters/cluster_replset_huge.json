@@ -1,0 +1,298 @@
+{
+    "configsvrs": [ {
+        "members" : [
+            {
+                "procParams": {
+                    "dbpath": "/tmp/SHARDED-RS-HUGE/CFG/4590",
+                    "logpath": "/tmp/SHARDED-RS-HUGE/CFG/4590/mongod.log",
+                    "ipv6": true,
+                    "journal": true,
+                    "logappend": true,
+                    "port": 4590,
+                    "bind_ip_all": true
+                }
+            },
+            {
+                "procParams": {
+                    "dbpath": "/tmp/SHARDED-RS-HUGE/CFG/4591",
+                    "logpath": "/tmp/SHARDED-RS-HUGE/CFG/4591/mongod.log",
+                    "ipv6": true,
+                    "journal": true,
+                    "logappend": true,
+                    "port": 4591,
+                    "bind_ip_all": true
+                }
+            },
+            {
+                "procParams": {
+                    "dbpath": "/tmp/SHARDED-RS-HUGE/CFG/4592",
+                    "logpath": "/tmp/SHARDED-RS-HUGE/CFG/4592/mongod.log",
+                    "ipv6": true,
+                    "journal": true,
+                    "logappend": true,
+                    "port": 4592,
+                    "bind_ip_all": true
+                }
+            }
+        ]
+    } ],
+    "id": "cluster_rs_huge",
+    "shards": [
+        {
+            "id": "cluster-rs-huge-sh01",
+            "shardParams": {
+                "id": "sh01-rs-huge",
+                "members": [
+                    {
+                        "procParams": {
+                            "dbpath": "/tmp/SHARDED-RS-HUGE/SHARD1/4500",
+                            "logpath": "/tmp/SHARDED-RS-HUGE/SHARD1/4500/mongod.log",
+                            "ipv6": true,
+                            "journal": true,
+                            "logappend": true,
+                            "port": 4500,
+                            "bind_ip_all": true,
+                            "setParameter":  {
+                                "periodicNoopIntervalSecs":  1,
+                                "writePeriodicNoops":  true
+                            }
+                        }
+                    },
+                    {
+                        "procParams": {
+                            "dbpath": "/tmp/SHARDED-RS-HUGE/SHARD1/4501",
+                            "logpath": "/tmp/SHARDED-RS-HUGE/SHARD1/4501/mongod.log",
+                            "ipv6": true,
+                            "journal": true,
+                            "logappend": true,
+                            "port": 4501,
+                            "bind_ip_all": true,
+                            "setParameter":  {
+                                "periodicNoopIntervalSecs":  1,
+                                "writePeriodicNoops":  true
+                            }
+                        }
+                    },
+                    {
+                        "procParams": {
+                            "dbpath": "/tmp/SHARDED-RS-HUGE/SHARD1/4502",
+                            "logpath": "/tmp/SHARDED-RS-HUGE/SHARD1/4502/mongod.log",
+                            "ipv6": true,
+                            "journal": true,
+                            "logappend": true,
+                            "port": 4502,
+                            "bind_ip_all": true,
+                            "setParameter":  {
+                                "periodicNoopIntervalSecs":  1,
+                                "writePeriodicNoops":  true
+                            }
+                        },
+                        "rsParams": {
+                            "arbiterOnly": true
+
+                        }
+                     }
+                ]
+            }
+        }, 
+        {
+            "id": "cluster-rs-huge-sh02",
+            "shardParams": {
+                "id": "sh02-rs-huge",
+                "members": [
+                    {
+                        "procParams": {
+                            "dbpath": "/tmp/SHARDED-RS-HUGE/SHARD2/4510",
+                            "logpath": "/tmp/SHARDED-RS-HUGE/SHARD2/4510/mongod.log",
+                            "ipv6": true,
+                            "journal": true,
+                            "logappend": true,
+                            "port": 4510,
+                            "bind_ip_all": true,
+                            "setParameter":  {
+                                "periodicNoopIntervalSecs":  1,
+                                "writePeriodicNoops":  true
+                            }
+                        }
+                    },
+                    {
+                        "procParams": {
+                            "dbpath": "/tmp/SHARDED-RS-HUGE/SHARD2/4511",
+                            "logpath": "/tmp/SHARDED-RS-HUGE/SHARD2/4511/mongod.log",
+                            "ipv6": true,
+                            "journal": true,
+                            "logappend": true,
+                            "port": 4511,
+                            "bind_ip_all": true,
+                            "setParameter":  {
+                                "periodicNoopIntervalSecs":  1,
+                                "writePeriodicNoops":  true
+                            }
+                        }
+                    },
+                    {
+                        "procParams": {
+                            "dbpath": "/tmp/SHARDED-RS-HUGE/SHARD2/4512",
+                            "logpath": "/tmp/SHARDED-RS-HUGE/SHARD2/4512/mongod.log",
+                            "ipv6": true,
+                            "journal": true,
+                            "logappend": true,
+                            "port": 4512,
+                            "bind_ip_all": true,
+                            "setParameter":  {
+                                "periodicNoopIntervalSecs":  1,
+                                "writePeriodicNoops":  true
+                            }
+                        },
+                        "rsParams": {
+                            "arbiterOnly": true
+
+                        }
+                    }
+                ]
+            }
+        }
+    ], 
+    "routers": [
+        {
+            "logpath": "/tmp/SHARDED-RS-HUGE/ROUTER/4530/mongod.log",
+            "ipv6": true,
+            "logappend": true,
+            "port": 4530,
+            "bind_ip_all": true
+        },
+        {
+            "logpath": "/tmp/SHARDED-RS-HUGE/ROUTER/4531/mongod.log",
+            "ipv6": true,
+            "logappend": true,
+            "port": 4531,
+            "bind_ip_all": true
+        },
+        {
+            "logpath": "/tmp/SHARDED-RS-HUGE/ROUTER/4532/mongod.log",
+            "ipv6": true,
+            "logappend": true,
+            "port": 4532,
+            "bind_ip_all": true
+        },
+        {
+            "logpath": "/tmp/SHARDED-RS-HUGE/ROUTER/4533/mongod.log",
+            "ipv6": true,
+            "logappend": true,
+            "port": 4533,
+            "bind_ip_all": true
+        },
+        {
+            "logpath": "/tmp/SHARDED-RS-HUGE/ROUTER/4534/mongod.log",
+            "ipv6": true,
+            "logappend": true,
+            "port": 4534,
+            "bind_ip_all": true
+        },
+        {
+            "logpath": "/tmp/SHARDED-RS-HUGE/ROUTER/4535/mongod.log",
+            "ipv6": true,
+            "logappend": true,
+            "port": 4535,
+            "bind_ip_all": true
+        },
+        {
+            "logpath": "/tmp/SHARDED-RS-HUGE/ROUTER/4536/mongod.log",
+            "ipv6": true,
+            "logappend": true,
+            "port": 4536,
+            "bind_ip_all": true
+        },
+        {
+            "logpath": "/tmp/SHARDED-RS-HUGE/ROUTER/4537/mongod.log",
+            "ipv6": true,
+            "logappend": true,
+            "port": 4537,
+            "bind_ip_all": true
+        },
+        {
+            "logpath": "/tmp/SHARDED-RS-HUGE/ROUTER/4538/mongod.log",
+            "ipv6": true,
+            "logappend": true,
+            "port": 4538,
+            "bind_ip_all": true
+        },
+        {
+            "logpath": "/tmp/SHARDED-RS-HUGE/ROUTER/4539/mongod.log",
+            "ipv6": true,
+            "logappend": true,
+            "port": 4539,
+            "bind_ip_all": true
+        },
+        {
+            "logpath": "/tmp/SHARDED-RS-HUGE/ROUTER/4540/mongod.log",
+            "ipv6": true,
+            "logappend": true,
+            "port": 4540,
+            "bind_ip_all": true
+        },
+        {
+            "logpath": "/tmp/SHARDED-RS-HUGE/ROUTER/4541/mongod.log",
+            "ipv6": true,
+            "logappend": true,
+            "port": 4541,
+            "bind_ip_all": true
+        },
+        {
+            "logpath": "/tmp/SHARDED-RS-HUGE/ROUTER/4542/mongod.log",
+            "ipv6": true,
+            "logappend": true,
+            "port": 4542,
+            "bind_ip_all": true
+        },
+        {
+            "logpath": "/tmp/SHARDED-RS-HUGE/ROUTER/4543/mongod.log",
+            "ipv6": true,
+            "logappend": true,
+            "port": 4543,
+            "bind_ip_all": true
+        },
+        {
+            "logpath": "/tmp/SHARDED-RS-HUGE/ROUTER/4544/mongod.log",
+            "ipv6": true,
+            "logappend": true,
+            "port": 4544,
+            "bind_ip_all": true
+        },
+        {
+            "logpath": "/tmp/SHARDED-RS-HUGE/ROUTER/4545/mongod.log",
+            "ipv6": true,
+            "logappend": true,
+            "port": 4545,
+            "bind_ip_all": true
+        },
+        {
+            "logpath": "/tmp/SHARDED-RS-HUGE/ROUTER/4546/mongod.log",
+            "ipv6": true,
+            "logappend": true,
+            "port": 4546,
+            "bind_ip_all": true
+        },
+        {
+            "logpath": "/tmp/SHARDED-RS-HUGE/ROUTER/4547/mongod.log",
+            "ipv6": true,
+            "logappend": true,
+            "port": 4547,
+            "bind_ip_all": true
+        },
+        {
+            "logpath": "/tmp/SHARDED-RS-HUGE/ROUTER/4548/mongod.log",
+            "ipv6": true,
+            "logappend": true,
+            "port": 4548,
+            "bind_ip_all": true
+        },
+        {
+            "logpath": "/tmp/SHARDED-RS-HUGE/ROUTER/4549/mongod.log",
+            "ipv6": true,
+            "logappend": true,
+            "port": 4549,
+            "bind_ip_all": true
+        }
+    ]
+}
