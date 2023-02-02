@@ -3,7 +3,7 @@ export EDITOR="vim";
 
 # Larger history (allow 32³ entries; default is 500)
 export HISTFILE=~/.zsh_history
-expoert HISTSIZE=999999999
+export HISTSIZE=999999999
 export SAVEHIST=$HISTSIZE
 export HISTCONTROL=ignoredups;
 # Make some commands not show up in history
