@@ -15,9 +15,15 @@ Thumbs.db
 
 # Global ignore
 .idea
+compile_commands.json
+configure~
+config.h.in~
 
 # Node, bower, etc.
 node_modules/
 
 # Vagrant files
 .vagrant
+
+# PHP build artifacts
+ext/opcache/jit/zend_jit_arm64.c

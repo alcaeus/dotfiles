@@ -172,7 +172,10 @@ function rebuild () {
 
 # `rebuild` to completely rebuild the MongoDB PHP extension
 function rebuild () {
+    rm -f configure.in configure.ac
+    chmod u+w run-tests.php build/*
     phpize > /dev/null && \
-    CC=/usr/local/opt/llvm/bin/clang ./configure --enable-mongodb-developer-flags > /dev/null && \
+    chmod u+w run-tests.php build/* && \
+    CFLAGS=-I/opt/homebrew/include ./configure --enable-mongodb-developer-flags > /dev/null && \
     make clean && make all -j20 > /dev/null
 }

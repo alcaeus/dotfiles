@@ -144,11 +144,14 @@
 
 	default = current
 
+[rebase]
+	autosquash = true
+
 # URL shorthands
 
 [url "git@github.com:"]
 
-	insteadOf = "gh:"
+	insteadof = https://github.com/
 	pushInsteadOf = "github:"
 	pushInsteadOf = "git://github.com/"
 
