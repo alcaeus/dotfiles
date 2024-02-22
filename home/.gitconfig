@@ -1,174 +1,191 @@
 [alias]
-	# View abbreviated SHA, description, and history graph of the latest 20 commits
-	l = log --pretty='format:%C(red)%G?%Creset %C(yellow)%h%Creset %s' -n 20 --graph
+    # View abbreviated SHA, description, and history graph of the latest 20 commits
+    l = log --pretty='format:%C(red)%G?%Creset %C(yellow)%h%Creset %s' -n 20 --graph
 
-	# Show signature information by default
-	show = show --show-signature
-	log = log --show-signature
+    # Show signature information by default
+    show = show --show-signature
+    log = log --show-signature
 
-	# View the current working tree status using the short format
-	s = status -s
+    # View the current working tree status using the short format
+    s = status -s
 
-	# Show the diff between the latest commit and the current state
-	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+    # Show the diff between the latest commit and the current state
+    d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
 
-	# `git di $number` shows the diff between the state `$number` revisions ago and the current state
-	di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
+    # `git di $number` shows the diff between the state `$number` revisions ago and the current state
+    di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
 
-	# Switch to a branch, creating it if necessary
-	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+    # Switch to a branch, creating it if necessary
+    go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
 
-	# Show verbose output about tags, branches or remotes
-	tags = tag -l
-	branches = branch -vv
-	remotes = remote -v
+    # Show verbose output about tags, branches or remotes
+    tags = tag -l
+    branches = branch -vv
+    remotes = remote -v
 
-	# Amend the currently staged files to the latest commit
-	amend = commit --amend --reuse-message=HEAD
+    # Amend the currently staged files to the latest commit
+    amend = commit --amend --reuse-message=HEAD
 
-	# Credit an author on the latest commit
-	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
+    # Credit an author on the latest commit
+    credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
 
-	# Interactive rebase with the given number of latest commits
-	reb = "!r() { git rebase -i HEAD~$1; }; r"
+    # Interactive rebase with the given number of latest commits
+    reb = "!r() { git rebase -i HEAD~$1; }; r"
 
-	# Remove branches that have already been merged with master
-	# a.k.a. ‘delete merged’
-	dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+    # Remove branches that have already been merged with master
+    # a.k.a. ‘delete merged’
+    dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 
-	# List contributors with number of commits
-	contributors = shortlog --summary --numbered
+    # List contributors with number of commits
+    contributors = shortlog --summary --numbered
 
-	# Go back to master and clean up
-	master = !git checkout master && git pull --rebase && git remote prune origin && git clean-branches
+    # Go back to master and clean up
+    master = !git checkout master && git pull --rebase && git remote prune origin && git clean-branches
 
-	# Merge GitHub pull request on top of the `master` branch
-	mpr = "!f() { \
-		if [ $(printf \"%s\" \"$1\" | grep '^[0-9]\\+$' > /dev/null; printf $?) -eq 0 ]; then \
-			git fetch origin refs/pull/$1/head:pr/$1 && \
-			git rebase master pr/$1 && \
-			git checkout master && \
-			git merge --no-ff pr/$1 && \
-			git branch -D pr/$1 && \
-			git commit --amend -m \"$(git log -1 --pretty=%B)\n\nCloses #$1.\"; \
-		fi \
-	}; f"
+    # Merge GitHub pull request on top of the `master` branch
+    mpr = "!f() { \
+        if [ $(printf \"%s\" \"$1\" | grep '^[0-9]\\+$' > /dev/null; printf $?) -eq 0 ]; then \
+            git fetch origin refs/pull/$1/head:pr/$1 && \
+            git rebase master pr/$1 && \
+            git checkout master && \
+            git merge --no-ff pr/$1 && \
+            git branch -D pr/$1 && \
+            git commit --amend -m \"$(git log -1 --pretty=%B)\n\nCloses #$1.\"; \
+        fi \
+    }; f"
 
-	# Show staged diff
-	staged = diff --staged
+    # Show staged diff
+    staged = diff --staged
 
-	# Unstage changes
-	unstage = reset head
+    # Unstage changes
+    unstage = reset head
 
-	# Show last version tag
-	lv = !"git tag | sort -t. -k 1,1rn -k 2,2rn -k 3,3rn -k 4,4rn | head -n 1"
+    # Show last version tag
+    lv = !"git tag | sort -t. -k 1,1rn -k 2,2rn -k 3,3rn -k 4,4rn | head -n 1"
 
-	# Show pretty version graph
-	graph = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(black)%s%C(reset)%n''          %an%  - %G? %GS %GK'"
-	graphAll = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(black)%s%C(reset)%n''          %an%  - %G? %GS %GK' --all"
+    # Show pretty version graph
+    graph = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(black)%s%C(reset)%n''          %an%  - %G? %GS %GK'"
+    graphAll = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(black)%s%C(reset)%n''          %an%  - %G? %GS %GK' --all"
 
-	clean-branches = !"git for-each-ref --format='%(refname:short)' refs/heads/* | while read b; do if r=$(git config --get branch.$b.remote); then m=$(git config --get branch.$b.merge); ref=$(git for-each-ref --format='%(refname:short)' \"refs/remotes/$r/${m##*/}\" | wc -l | tr -d ' '); if [ \"x$ref\" == \"x0\" ]; then git branch -d $b; fi; fi; done"
+    clean-branches = !"git for-each-ref --format='%(refname:short)' refs/heads/* | while read b; do if r=$(git config --get branch.$b.remote); then m=$(git config --get branch.$b.merge); ref=$(git for-each-ref --format='%(refname:short)' \"refs/remotes/$r/${m##*/}\" | wc -l | tr -d ' '); if [ \"x$ref\" == \"x0\" ]; then git branch -d $b; fi; fi; done"
 
-	pr = "pull-request"
+    pr = "pull-request"
 
 [apply]
 
-	# Detect whitespace errors when applying a patch
-	whitespace = fix
+    # Detect whitespace errors when applying a patch
+    whitespace = fix
 
 [core]
 
-	# Use custom `.gitignore` and `.gitattributes`
-	excludesfile = ~/.gitignore
-	attributesfile = ~/.gitattributes
+    # Use custom `.gitignore` and `.gitattributes`
+    excludesfile = ~/.gitignore
+    attributesfile = ~/.gitattributes
 
-	# Use centralized hooks
-	hooksPath = ~/.githooks
+    # Use centralized hooks
+    hooksPath = ~/.githooks
 
-	# Treat spaces before tabs and all kinds of trailing whitespace as an error
-	# [default] trailing-space: looks for spaces at the end of a line
-	# [default] space-before-tab: looks for spaces before tabs at the beginning of a line
-	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+    # Treat spaces before tabs and all kinds of trailing whitespace as an error
+    # [default] trailing-space: looks for spaces at the end of a line
+    # [default] space-before-tab: looks for spaces before tabs at the beginning of a line
+    whitespace = space-before-tab,-indent-with-non-tab,trailing-space
 
-	# Make `git rebase` safer on OS X
-	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
-	trustctime = false
+    # Make `git rebase` safer on OS X
+    # More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
+    trustctime = false
 
 [color]
 
-	# Use colors in Git commands that are capable of colored output when
-	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
-	ui = auto
+    # Use colors in Git commands that are capable of colored output when
+    # outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
+    ui = auto
 
 [color "branch"]
 
-	current = yellow reverse
-	local = yellow
-	remote = green
+    current = yellow reverse
+    local = yellow
+    remote = green
 
 [color "diff"]
 
-	meta = yellow bold
-	frag = magenta bold # line info
-	old = red # deletions
-	new = green # additions
+    meta = yellow bold
+    frag = magenta bold # line info
+    old = red # deletions
+    new = green # additions
 
 [color "status"]
 
-	added = yellow
-	changed = green
-	untracked = cyan
+    added = yellow
+    changed = green
+    untracked = cyan
 
 [diff]
 
-	# Detect copies as well as renames
-	renames = copies
+    renames = true
 
 [help]
 
-	# Automatically correct and execute mistyped commands
-	autocorrect = 1
+    # Automatically correct and execute mistyped commands
+    autocorrect = 1
 
 [commit]
-	gpgsign = true
+    gpgsign = true
 
 [init]
-	defaultBranch = main
+    defaultBranch = main
 
 [merge]
 
-	# Include summaries of merged commits in newly created merge commit messages
-	log = true
+    # Include summaries of merged commits in newly created merge commit messages
+    log = true
 
 [push]
 
-	default = current
+    default = current
 
 [rebase]
-	autosquash = true
+    autosquash = true
 
 # URL shorthands
 
 [url "git@github.com:"]
 
-	insteadof = https://github.com/
-	pushInsteadOf = "github:"
-	pushInsteadOf = "git://github.com/"
+    insteadof = https://github.com/
+    pushInsteadOf = "github:"
+    pushInsteadOf = "git://github.com/"
 
 [url "git://github.com/"]
 
-	insteadOf = "github:"
+    insteadOf = "github:"
 
 [url "git@gist.github.com:"]
 
-	insteadOf = "gst:"
-	pushInsteadOf = "gist:"
-	pushInsteadOf = "git://gist.github.com/"
+    insteadOf = "gst:"
+    pushInsteadOf = "gist:"
+    pushInsteadOf = "git://gist.github.com/"
 
 [url "git://gist.github.com/"]
 
-	insteadOf = "gist:"
+    insteadOf = "gist:"
 
 [user]
 
-	useconfigonly = true
+    useconfigonly = true
+
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+
+# Default author/key information
+[include]
+    path = ".gitconfig.private"
+
+# MongoDB related repositories use a different author config
+[includeIf "gitdir:~/Code/10gen/"]
+    path = ".gitconfig.mongodb"
+[includeIf "gitdir:~/Code/mongodb/"]
+    path = ".gitconfig.mongodb"
+[includeIf "gitdir:~/Code/mongodb-labs/"]
+    path = ".gitconfig.mongodb"
