@@ -2,24 +2,28 @@
 # Usage: `brew bundle`
 
 tap 'alcaeus/brew'
+tap 'homebrew/cask-drivers'
 
 # General development stuff
-brew 'bash-completion'
+brew 'zsh-completion'
 brew 'git'
+brew 'gh'
 brew 'gnupg'
 brew 'pinentry-mac'
-brew 'hub'
 brew 'curl'
 brew 'm'
 brew 'mongo-orchestration'
 brew 'wget'
 brew 'cloc'
-brew 'mas'
 
 # General casks
+cask 'elgato-camera-hub'
+cask 'elgato-control-center'
+cask 'elgato-stream-deck'
+cask 'elgato-wave-link'
+cask 'jetbrains-toolbox'
+cask 'mongodb-compass'
 cask 'moom'
-cask 'phpstorm'
 cask 'slack'
-cask 'toggl'
-cask 'whatpulse'
+cask 'toggl-track'
 cask 'whatsapp'
