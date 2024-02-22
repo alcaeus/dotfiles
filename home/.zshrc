@@ -13,3 +13,5 @@ if type brew &>/dev/null; then
   compinit
   setopt always_to_end
 fi
+
+ulimit -n 10000
