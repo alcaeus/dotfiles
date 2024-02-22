@@ -177,5 +177,5 @@ function rebuild () {
     phpize > /dev/null && \
     chmod u+w run-tests.php build/* && \
     CFLAGS=-I/opt/homebrew/include ./configure --enable-mongodb-developer-flags > /dev/null && \
-    make clean && make all -j20 > /dev/null
+    make clean && make all -j10 > /dev/null
 }
