@@ -30,3 +30,4 @@ ext/opcache/jit/zend_jit_arm64.c
 
 # AI systems
 .feature-builder/
+.claude/settings.local.json
